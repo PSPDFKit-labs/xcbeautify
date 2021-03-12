@@ -188,20 +188,14 @@ enum Pattern: String {
     /// $2 = test case
     /// $3 = installed app file and ID (e.g. "MyApp.app (12345)"), process (e.g. "xctest (12345)"), or device (e.g. "iPhone X")
     /// $4 = time
-     case parallelTestCasePassed = #"Test\s+case\s+'(.*)\.(.*)\(\)'\s+passed\s+on\s+'(.*)'\s+\((\d*\.(.*){3})\s+seconds\)"#
-
-    /// Regular expression captured groups:
-    /// $1 = suite
-    /// $2 = test case
-    /// $3 = time
-    case parallelTestCaseAppKitPassed = #"\s*Test case\s'-\[(.*)\s(.*)\]'\spassed\son\s'.*'\s\((\d*\.\d{3})\sseconds\)"#
+     case parallelTestCasePassed = #"Test\s+case\s+'(?:-\[)?(.+)(?:\s|\.)(.+)(?:\(\)|\])'\s+passed\s+on\s+'(.*)'\s+\((\d*\.(.*){3})\s+seconds\)"#
 
     /// Regular expression captured groups:
     /// $1 = suite
     /// $2 = test case
     /// $3 = installed app file and ID (e.g. "MyApp.app (12345)"), process (e.g. "xctest (12345)"), or device (e.g. "iPhone X")
     /// $4 = time
-    case parallelTestCaseFailed = #"Test\s+case\s+'(.*)\.(.*)\(\)'\s+failed\s+on\s+'(.*)'\s+\((\d*\.(.*){3})\s+seconds\)"#
+    case parallelTestCaseFailed = #"Test\s+case\s+'(?:-\[)?(.+)(?:\s|\.)(.+)(?:\(\)|\])'\s+failed\s+on\s+'(.*)(?:\[)?'\s+\((\d*\.(.*){3})\s+seconds\)"#
 
     /// Regular expression captured groups:
     /// $1 = device

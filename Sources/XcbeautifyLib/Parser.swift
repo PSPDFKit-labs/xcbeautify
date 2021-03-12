@@ -143,9 +143,6 @@ public class Parser {
             case Matcher.parallelTestCasePassedMatcher:
                 outputType = OutputType.test
                 return line.beautify(pattern: .parallelTestCasePassed, colored: colored)
-            case Matcher.parallelTestCaseAppKitPassedMatcher:
-                outputType = OutputType.test
-                return line.beautify(pattern: .parallelTestCaseAppKitPassed, colored: colored)
             case Matcher.parallelTestingStartedMatcher:
                 outputType = OutputType.test
                 return line.beautify(pattern: .parallelTestingStarted, colored: colored)

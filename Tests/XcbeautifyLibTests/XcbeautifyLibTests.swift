@@ -173,8 +173,18 @@ final class XcbeautifyLibTests: XCTestCase {
         XCTAssertEqual(formatted, "    ✖ testBuildTarget on 'xctest (49438)' (0.131 seconds)")
     }
 
+    func testParallelTestCaseFailedObjC() {
+        let formatted = noColoredFormatted("Test case '-[XcbeautifyLibTests testBuildTarget]' failed on 'xctest (49438)' (0.131 seconds)")
+        XCTAssertEqual(formatted, "    ✖ testBuildTarget on 'xctest (49438)' (0.131 seconds)")
+    }
+
     func testParallelTestCasePassed() {
         let formatted = noColoredFormatted("Test case 'XcbeautifyLibTests.testBuildTarget()' passed on 'xctest (49438)' (0.131 seconds)")
+        XCTAssertEqual(formatted, "    ✔ testBuildTarget on 'xctest (49438)' (0.131 seconds)")
+    }
+
+    func testParallelTestCasePassedObjC() {
+        let formatted = noColoredFormatted("Test case '-[XcbeautifyLibTests testBuildTarget]' passed on 'xctest (49438)' (0.131 seconds)")
         XCTAssertEqual(formatted, "    ✔ testBuildTarget on 'xctest (49438)' (0.131 seconds)")
     }
 
@@ -195,7 +205,7 @@ final class XcbeautifyLibTests: XCTestCase {
 
     func testParallelTestCaseAppKitPassed() {
         let formatted = noColoredFormatted("Test case '-[XcbeautifyLibTests.XcbeautifyLibTests testBuildTarget]' passed on 'xctest (49438)' (0.131 seconds).")
-        XCTAssertEqual(formatted, "    ✔ testBuildTarget (0.131) seconds)")
+        XCTAssertEqual(formatted, "    ✔ testBuildTarget on 'xctest (49438)' (0.131 seconds)")
     }
 
     func testParallelTestingStarted() {
